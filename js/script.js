@@ -1,7 +1,15 @@
 const maxUsers = 12;
 let results = [];
 let employeesToHide = [];
-$(".modal-container").hide();
+$(".modal-container")
+    .append(`    <div class="modal-container">
+</div>`)
+    .hide();
+
+$(".search-container").append(`<form action="#" method="get">
+<input type="search" id="search-input" class="search-input" placeholder="Search...">
+<input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit">
+</form>`);
 
 $(() => {
 
