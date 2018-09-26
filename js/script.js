@@ -1,5 +1,6 @@
 const maxUsers = 12;
 let results = [];
+let employeesToHide = [];
 $(".modal-container").hide();
 
 $(() => {
@@ -69,20 +70,24 @@ const showModal = (id) => {
                     <p class="modal-text cap">${results[id].location.city}</p>
                     <hr>
                     <p class="modal-text">${results[id].phone}</p>
-                    <p class="modal-text">${results[id].location.street}, ${results[id].location.city}, ${results[id].location.state} ${results[id].location.postcode}</p>
+                    <p class="modal-text cap">${results[id].location.street}, ${results[id].location.city}, ${results[id].location.state} ${results[id].location.postcode}</p>
                     <p class="modal-text">Birthday: ${new Date(results[id].dob.date).toLocaleDateString("en-US")}</p>
                 </div>
             </div>
 
             // IMPORTANT: Below is only for exceeds tasks
-            <div class="modal-btn-container">
-                ${ (id > 0)
-        ? `<button type="button" id="modal-prev" class="modal-prev btn">Prev</button>`
-        : ''}
-            ${ (id < maxUsers - 1)
-            ? `<button type="button" id="modal-next" class="modal-next btn">Next</button>`
+            ${ (employeesToHide.length > 0)
+        ? ''
+        : `<div class="modal-btn-container">
+                        ${ (id > 0)
+            ? `<button type="button" id="modal-prev" class="modal-prev btn">Prev</button>`
             : ''}
-            </div>
+                    ${ (id < maxUsers - 1)
+                ? `<button type="button" id="modal-next" class="modal-next btn">Next</button>`
+                : ''}
+                    </div>`}
+
+
     `).show();
 
     $("#modal-close-btn").on("click", () => hideModal());
@@ -124,12 +129,14 @@ $("#search-submit").on("click", (e) => {
 });
 
 const searchEmployees = (keyword) => {
+    employeesToHide = [];
 
     for (let i = 0; i < results.length; i++) {
         let fullName = results[i].name.first + " " + results[i].name.last;
         if (fullName.search(keyword) !== -1) {
             showEmployee(i);
         } else {
+            employeesToHide.push(i);
             hideEmployee(i);
         }
     }
