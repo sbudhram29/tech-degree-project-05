@@ -108,8 +108,37 @@ $(".modal-container").on('click', (e) => {
     hideModal();
 });
 
+/**
+ * handle search
+ */
+$('#search-input').on('keyup', (e) => searchEmployees(e.target.value))
+
+//handles submit button
 $("#search-submit").on("click", (e) => {
     e.preventDefault();
-    let value = $("#search-input").val();
-    console.log(value);
+    let value = $("#search-input")
+        .val()
+        .toLowerCase();
+
+    searchEmployees(value);
 });
+
+const searchEmployees = (keyword) => {
+
+    for (let i = 0; i < results.length; i++) {
+        let fullName = results[i].name.first + " " + results[i].name.last;
+        if (fullName.search(keyword) !== -1) {
+            showEmployee(i);
+        } else {
+            hideEmployee(i);
+        }
+    }
+
+}
+
+const hideEmployee = (id) => {
+    $(`#${id}`).hide()
+}
+const showEmployee = (id) => {
+    $(`#${id}`).show()
+}

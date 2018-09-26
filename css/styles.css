@@ -1,14 +1,14 @@
-/* ===================================== 
+/* =====================================
    Public API Request
 ======================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     max-width: 100%;
 }
@@ -16,7 +16,7 @@ html, body {
 body {
     font-family: "Nunito", sans-serif;
     text-align: center;
-    background: rgba(235, 235, 235, 0.9);
+    background: rgba(96, 125, 139, 1);
 }
 
 header {
@@ -30,20 +30,22 @@ header {
 
 header h1 {
     font-size: 1.25em;
-    color: rgba(50, 50, 50, 0.9);
+    color: rgba(255, 255, 255, 0.9);
     margin-top: 35px;
 }
 
 .search-input {
     padding: 0.4rem 1rem;
     border: 1px solid rgba(200, 200, 200, 0.9);
-    border-radius: 0.25rem 0 0 0.25rem ;
+    border-radius: 0.25rem 0 0 0.25rem;
     max-width: 20rem;
     transition: .4s ease-out;
     outline: none;
 }
 
-.search-input:active, .search-input:hover, .search-input:focus {
+.search-input:active,
+.search-input:hover,
+.search-input:focus {
     border: 1px solid rgba(50, 50, 50, 0.9);
 }
 
@@ -57,13 +59,15 @@ header h1 {
     outline: none;
 }
 
-.search-submit:active, .search-submit:hover, .search-submit:focus {
+.search-submit:active,
+.search-submit:hover,
+.search-submit:focus {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(50, 50, 50, 0.9);
 }
 
 
-/* ===================================== 
+/* =====================================
    Gallery
 ======================================== */
 
@@ -76,7 +80,7 @@ header h1 {
     max-width: 1200px;
     margin: auto;
 }
-  
+
 .card {
     display: flex;
     flex-direction: row;
@@ -120,7 +124,7 @@ header h1 {
 }
 
 
-/* ===================================== 
+/* =====================================
    Modal
 ======================================== */
 
@@ -186,13 +190,13 @@ header h1 {
     justify-content: space-evenly;
     width: 95%;
     max-width: 420px;
-    padding: 10px 15px 15px;;
+    padding: 10px 15px 15px;
+    ;
     margin: 10px auto auto;
     background: rgba(255, 255, 255, 1);
     border-radius: 0.25em;
     border: 1px solid rgba(100, 100, 100, 0.3);
 }
-
 
 .modal-btn-container .btn {
     display: inline-block;
@@ -205,14 +209,15 @@ header h1 {
     border-radius: 0.35em;
     transition: .4s ease-out;
     outline: none;
-  }
-  
+}
 
-/* ===================================== 
+
+/* =====================================
    Media Queries
 ======================================== */
 
-/* ===================================== 
+
+/* =====================================
    Tablet
 ======================================== */
 
@@ -225,39 +230,33 @@ header h1 {
         padding-right: 25px;
         padding-left: 25px;
     }
-
     .header-text-container {
         text-align: left;
     }
-
     .search-container {
         margin-top: 25px;
     }
-
     .modal {
         margin-top: 100px;
     }
 }
 
 
-/* ===================================== 
+/* =====================================
    Desktop
-   Hover styles on desktop 
+   Hover styles on desktop
 ======================================== */
 
 @media (min-width: 1024px) {
-
     .card:hover {
-        background: rgba(255, 255, 255, 1);
+        background: rgba(170, 188, 196, 1);
         border: 1px solid rgba(50, 50, 50, 0.9);
     }
-
     .card:hover .card-text {
-        color: rgba(25, 25, 25, 1); 
+        color: rgba(25, 25, 25, 1);
     }
-
     .btn:hover {
         background: rgba(255, 255, 255, 1);
-        color: rgba(25, 25, 25, 1); 
+        color: rgba(25, 25, 25, 1);
     }
 }
